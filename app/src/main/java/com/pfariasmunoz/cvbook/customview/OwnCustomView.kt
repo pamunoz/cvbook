@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 
 class OwnCustomView(ctx: Context, attrs: AttributeSet) : View(ctx, attrs) {
@@ -19,5 +20,11 @@ class OwnCustomView(ctx: Context, attrs: AttributeSet) : View(ctx, attrs) {
     override fun onDraw(canvas: Canvas?) {
         canvas?.drawRect(0f, 0f, width.toFloat(), height.toFloat(), backgroundPaint)
         super.onDraw(canvas)
+    }
+
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        Log.v("[View name] onMeasure w", MeasureSpec.toString(widthMeasureSpec));
+        Log.v("[View name] onMeasure h", MeasureSpec.toString(heightMeasureSpec));
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
     }
 }
