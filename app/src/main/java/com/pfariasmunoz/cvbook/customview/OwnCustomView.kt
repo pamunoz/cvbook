@@ -26,16 +26,18 @@ class OwnCustomView(ctx: Context, attrs: AttributeSet) : View(ctx, attrs) {
     var fillColor: Int = DEFAULT_FILL_COLOR
 
     init {
-        backgroundPaint.apply {
-            color = 0xffff0000.toInt()
-            style = Paint.Style.FILL
-        }
+
         // get the parameterised color
         val ta: TypedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.OwnCustomView, 0, 0)
         try {
             fillColor = ta.getColor(R.styleable.OwnCustomView_fillColor, DEFAULT_FILL_COLOR)
         } finally {
             ta.recycle()
+        }
+
+        backgroundPaint.apply {
+            color = fillColor
+            style = Paint.Style.FILL
         }
     }
 
