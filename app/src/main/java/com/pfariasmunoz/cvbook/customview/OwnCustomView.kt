@@ -6,9 +6,10 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
+import com.pfariasmunoz.cvbook.extensions.TAG
 
 class OwnCustomView(ctx: Context, attrs: AttributeSet) : View(ctx, attrs) {
-    val TAG = OwnCustomView::class.java.simpleName
+
     lateinit var backgroundPaint : Paint
 
     init {
@@ -24,8 +25,8 @@ class OwnCustomView(ctx: Context, attrs: AttributeSet) : View(ctx, attrs) {
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        Log.d(TAG, "width spec: ${MeasureSpec.toString(widthMeasureSpec)}")
-        Log.d(TAG, "height spec: ${MeasureSpec.toString(heightMeasureSpec)}")
+        Log.d(this.TAG, "width spec: ${MeasureSpec.toString(widthMeasureSpec)}")
+        Log.d(this.TAG, "height spec: ${MeasureSpec.toString(heightMeasureSpec)}")
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
     }
 }
