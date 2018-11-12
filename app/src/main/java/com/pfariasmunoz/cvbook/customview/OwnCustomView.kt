@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 
 class OwnCustomView(ctx: Context, attrs: AttributeSet) : View(ctx, attrs) {
+    val TAG = OwnCustomView::class.java.simpleName
     lateinit var backgroundPaint : Paint
 
     init {
@@ -23,8 +24,8 @@ class OwnCustomView(ctx: Context, attrs: AttributeSet) : View(ctx, attrs) {
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        Log.v("[View name] onMeasure w", MeasureSpec.toString(widthMeasureSpec));
-        Log.v("[View name] onMeasure h", MeasureSpec.toString(heightMeasureSpec));
+        Log.d(TAG, "width spec: ${MeasureSpec.toString(widthMeasureSpec)}")
+        Log.d(TAG, "height spec: ${MeasureSpec.toString(heightMeasureSpec)}")
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
     }
 }
