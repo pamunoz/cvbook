@@ -15,8 +15,7 @@
 
         <com.pfariasmunoz.cvbook.customview.OwnCustomView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
+            android:layout_height="wrap_content"
+            app:fillColor="@android:color/holo_blue_dark"/>
     </LinearLayout>
-
 </ScrollView>
