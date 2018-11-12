@@ -10,10 +10,10 @@ import com.pfariasmunoz.cvbook.extensions.TAG
 
 class OwnCustomView(ctx: Context, attrs: AttributeSet) : View(ctx, attrs) {
 
-    lateinit var backgroundPaint : Paint
+    private val backgroundPaint : Paint = Paint()
 
     init {
-        backgroundPaint = Paint().apply {
+        backgroundPaint.apply {
             color = 0xffff0000.toInt()
             style = Paint.Style.FILL
         }
