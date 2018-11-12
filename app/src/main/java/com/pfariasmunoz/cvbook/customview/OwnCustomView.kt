@@ -7,8 +7,11 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.View
 import com.pfariasmunoz.cvbook.extensions.TAG
+import com.pfariasmunoz.cvbook.extensions.getMeasurementSize
 
 class OwnCustomView(ctx: Context, attrs: AttributeSet) : View(ctx, attrs) {
+
+    val DEFAULT_SIZE = 1000
 
     private val backgroundPaint : Paint = Paint()
 
@@ -25,8 +28,10 @@ class OwnCustomView(ctx: Context, attrs: AttributeSet) : View(ctx, attrs) {
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        Log.d(this.TAG, "width spec: ${MeasureSpec.toString(widthMeasureSpec)}")
-        Log.d(this.TAG, "height spec: ${MeasureSpec.toString(heightMeasureSpec)}")
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        val width = getMeasurementSize(widthMeasureSpec, DEFAULT_SIZE)
+        val height = getMeasurementSize(heightMeasureSpec, DEFAULT_SIZE)
+        setMeasuredDimension(width, height)
     }
+
+
 }
